@@ -3,20 +3,22 @@ import { Link } from "react-router-dom";
 import { List, ListItem, ListItemText } from "@material-ui/core";
 import Appbar from "../components/Appbar";
 
+const chatroom = ["hoge", "huga", "huge"];
+
 const Home = () => {
   return (
     <nav>
       <Appbar />
       <List>
-        <ListItem component={Link} to={"/"}>
-          <ListItemText>Home</ListItemText>
-        </ListItem>
-        <ListItem component={Link} to={"/about"}>
-          <ListItemText>About</ListItemText>
-        </ListItem>
-        <ListItem component={Link} to={"/users"}>
-          <ListItemText>Users</ListItemText>
-        </ListItem>
+        {chatroom.map(_ => {
+          return (
+            //TODO: URLはサーバー側が発行した
+            //ルームを一意に決定できる文字列にする
+            <ListItem component={Link} to={"/about"}>
+              <ListItemText>部屋のタイトル</ListItemText>
+            </ListItem>
+          );
+        })}
       </List>
     </nav>
   );

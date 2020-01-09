@@ -7,7 +7,7 @@ const DetailPage = props => {
   return (
     <>
       <Appbar />
-      <h1>{title}</h1>
+      <h1>ここにチャットを表示</h1>
       <TextArea />
     </>
   );
