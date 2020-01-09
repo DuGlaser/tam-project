@@ -1,20 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { List, ListItem, ListItemText } from "@material-ui/core";
 
 const Home = () => {
   return (
     <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/users">Users</Link>
-        </li>
-      </ul>
+      <List>
+        <ListItem component={Link} to={"/"}>
+          <ListItemText>hoge</ListItemText>
+        </ListItem>
+        <ListItem component={Link} to={"/about"}>
+          <ListItemText>About</ListItemText>
+        </ListItem>
+        <ListItem component={Link} to={"/users"}>
+          <ListItemText>Users</ListItemText>
+        </ListItem>
+      </List>
     </nav>
   );
 };
