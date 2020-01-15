@@ -1,9 +1,10 @@
-import { call, put, takeEvery } from "redux-saga";
+import { call, put, takeEvery } from "redux-saga/effects";
 import { success, REQUEST, fail } from "../actions/action";
+import fetchServer from "../api/api";
 
-function* request() {
+function* request(action) {
   try {
-    const data = yield call(/*graphQLを使ってデータを取得*/);
+    const data = yield call(fetchServer, action.query);
     yield put(success(data));
   } catch (error) {
     yield put(fail(error));
@@ -11,5 +12,5 @@ function* request() {
 }
 
 export function* rootSaga() {
-  yield takeEvery(REQUEST, request());
+  yield takeEvery(REQUEST, request);
 }
