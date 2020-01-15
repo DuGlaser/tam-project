@@ -4,7 +4,8 @@ import { request } from "../actions/action";
 
 const mapStateToProps = state => {
   return {
-    isLoading: state.isLoading
+    isLoading: state.isLoading,
+    data: state.data
   };
 };
 
