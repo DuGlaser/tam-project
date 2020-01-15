@@ -1,16 +1,16 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import DetailPage from "../components/detailPage";
-import Home from "../components/Home";
+import Home from "../containers/Home";
+import ChatPage from "../containers/ChatPage";
 
 const routes = (
   <div>
     <Switch>
       <Route path="/about">
-        <DetailPage title={"About"} />
+        <ChatPage title={"About"} />
       </Route>
       <Route path="/users">
-        <DetailPage title={"Users"} />
+        <ChatPage title={"Users"} />
       </Route>
       <Route path="/">
         <Home />
