@@ -11,4 +11,7 @@ const fetchServer = query => {
   }).then(res => res.json());
 };
 
+// TODO:https://github.com/prisma-labs/graphql-request
+// fetchとaxiosとこれの技術選定
+
 export default fetchServer;
