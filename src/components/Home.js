@@ -1,30 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   List,
   ListItem,
   ListItemText,
-  CircularProgress
+  LinearProgress
 } from "@material-ui/core";
 import Appbar from "../components/Appbar";
 
 const Home = props => {
-  const { isLoading } = props;
-  // TODO:useEffectを使ってリストを取得?
-  const chatroom = ["About"];
+  const { isLoading, request } = props;
+
+  // [WIP]
+  // useEffect(() => {
+  //   request(getRoomInfo);
+  // }, [room]);
+  //
+
+  const room = ["hoge"];
   return (
     <nav>
       <Appbar />
       {isLoading ? (
-        <CircularProgress />
+        <LinearProgress color="secondary" />
       ) : (
         <List>
-          {chatroom.map(v => {
+          {room.map(rooms => {
             return (
-              //TODO: URLはサーバー側が発行した
-              //ルームを一意に決定できる文字列にする
-              <ListItem component={Link} to={`/${v}`}>
-                <ListItemText>部屋のタイトル</ListItemText>
+              <ListItem component={Link} to={`/${rooms}`}>
+                <ListItemText>{rooms}</ListItemText>
               </ListItem>
             );
           })}
