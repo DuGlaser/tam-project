@@ -1,18 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Appbar from "./Appbar";
 import TextArea from "./TextArea";
-import { CircularProgress } from "@material-ui/core";
+import {
+  LinearProgress,
+  List,
+  ListItem,
+  ListItemText
+} from "@material-ui/core";
 
 const ChatPage = props => {
-  const { isLoading } = props;
+  const { isLoading, request } = props;
+
+  // useEffect(() => {
+  //   request(getMessageList(/*getMessageList*/));
+  // }, []);
+
+  const messageList = ["hoge", "huga"];
+
   return (
     <>
       <Appbar />
       {isLoading ? (
-        <CircularProgress />
+        <LinearProgress color="secondary" />
       ) : (
         <div>
-          <h1>ここにチャットを表示</h1>
+          {messageList.map(text => {
+            return (
+              <div>
+                <List>
+                  <ListItem alignItems="flex-start">
+                    <ListItemText primary={text} />
+                  </ListItem>
+                  {/* <Divider variant="inset" component="li" /> */}
+                </List>
+              </div>
+            );
+          })}
         </div>
       )}
       <TextArea />
