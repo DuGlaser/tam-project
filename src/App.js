@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
-import routes from "./routes";
+import { router, NoteRouter } from "./routes";
 
 const App = () => {
-  return <Router>{routes}</Router>;
+  return <NoteRouter />;
 };
 
 export default App;
