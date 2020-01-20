@@ -1,22 +1,19 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "../containers/Home";
-import ChatPage from "../containers/ChatPage";
+import Markdown from "../containers/Markdown";
 
-const routes = (
-  <div>
-    <Switch>
-      <Route path="/about">
-        <ChatPage title={"About"} />
-      </Route>
-      <Route path="/users">
-        <ChatPage title={"Users"} />
-      </Route>
-      <Route path="/">
-        <Home />
-      </Route>
-    </Switch>
-  </div>
-);
+const NoteRouter = () => {
+  return (
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/note/:id" component={Markdown} />
+        </Switch>
+      </div>
+    </Router>
+  );
+};
 
-export default routes;
+export default NoteRouter;
