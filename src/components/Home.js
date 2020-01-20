@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useCallback } from "react";
 import { Link } from "react-router-dom";
 import {
   List,
@@ -7,17 +7,15 @@ import {
   LinearProgress
 } from "@material-ui/core";
 import Appbar from "../components/Appbar";
+import { getNoteList } from "../query/query";
 
 const Home = props => {
-  const { isLoading, request } = props;
+  const { isLoading, request, data } = props;
 
-  // [WIP]
-  // useEffect(() => {
-  //   request(getRoomInfo);
-  // }, [room]);
-  //
+  if (data.notes.length === 0) {
+    request(getNoteList());
+  }
 
-  const room = ["hoge"];
   return (
     <nav>
       <Appbar />
@@ -25,10 +23,10 @@ const Home = props => {
         <LinearProgress color="secondary" />
       ) : (
         <List>
-          {room.map(rooms => {
+          {data.notes.map(note => {
             return (
-              <ListItem component={Link} to={`/${rooms}`}>
-                <ListItemText>{rooms}</ListItemText>
+              <ListItem key={note.id} component={Link} to={`/note/${note.id}`}>
+                <ListItemText>{note.title}</ListItemText>
               </ListItem>
             );
           })}
