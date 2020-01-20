@@ -20,9 +20,9 @@ const Markdown = props => {
     request(UpdateNote(ID, html));
   };
 
-  if (!isLoading) {
-    setHtml(data.note.content);
-  }
+  // if (!isLoading) {
+  //   setHtml(data.note.content);
+  // }
 
   return (
     <>
