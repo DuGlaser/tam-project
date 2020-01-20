@@ -4,7 +4,8 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
-import configureStore from "./store/store";
+import configureStore, { history } from "./store/store";
+import { ConnectedRouter } from "connected-react-router";
 
 const store = configureStore();
 
